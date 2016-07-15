@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 //引用头部组件
-const Header = require('./header');
+const Header = require('./js/custom');
 
 class RN_Day02 extends Component {
   render() {
