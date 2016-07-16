@@ -4,7 +4,9 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -15,13 +17,13 @@ import {
 class RN_Day01 extends Component {
   render() {
     return (
-     <Text styles{styles.welcome}> welcome to React Native ! </Text>
+      <Text style={styles.welcome}> welcome to React Native ! </Text>
     );
   }
-}insta
+}
 
 const styles = StyleSheet.create({
-  container: 
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

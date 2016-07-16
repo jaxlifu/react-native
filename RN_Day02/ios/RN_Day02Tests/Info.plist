@@ -20,13 +20,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-<<<<<<< HEAD
-=======
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
 </dict>
 </plist>

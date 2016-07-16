@@ -4,44 +4,21 @@
  * @flow
  */
 
-<<<<<<< HEAD
-import React, { Component } from 'react';
-=======
+
 import React, {
   Component
 } from 'react';
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
 import {
   AppRegistry,
   StyleSheet,
   Text,
-<<<<<<< HEAD
-  View
-=======
   View,
   Navigator,
   ScrollView
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
 } from 'react-native';
 
 import Custom from './js/custom'
 
-<<<<<<< HEAD
-class RN_Day03 extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-=======
 
 //这个是页面之间跳转时候的动画，具体有哪些？可以看这个目录下，有源代码的: node_modules/react-native/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js
 
@@ -170,33 +147,10 @@ class Detail extends Component {
           <Text style={styles.list_item}>传递过来的用户Id是:{this.props.id}</Text>
           <Text style={[styles.list_item]} onPress={this.onBackClick.bind(this)}>点击返回</Text>
       </ScrollView>
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
     );
   }
 }
 
-<<<<<<< HEAD
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('RN_Day03', () => RN_Day03);
-=======
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -235,4 +189,3 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('RN_Day03', () => RN_Day03);
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a

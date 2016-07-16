@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#react-native学习笔记Day02 2016-07-13
-=======
 #react-native学习笔记Day01 2016-07-13
 >>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
 ###react-native Text 的使用

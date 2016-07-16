@@ -11,13 +11,6 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-<<<<<<< HEAD
-  View
-} from 'react-native';
-
-//引用头部组件
-const Header = require('./header');
-=======
   View,
   ScrollView
 } from 'react-native';
@@ -28,21 +21,10 @@ const Header = require('./js/header');
 const Custom = require('./js/custom');
 
 // const Index = require('./js/index');
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
 
 class RN_Day02 extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <View>
-       <Header></Header>
-        <List title='welcome'></List>
-        <List title='to'></List>
-        <List title='jiangxi'></List>
-        <List title='jiujiang'></List>
-        <ImportNews news={['这个是自定义组件的','四大四大','哈哈哈哈哈哈','菲律宾的一群傻子']}></ImportNews>
-      </View>
-=======
 
       <ScrollView>
         <Custom/>
@@ -52,19 +34,10 @@ class RN_Day02 extends Component {
       </ScrollView>
 
 
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
     );
   }
 }
 
-<<<<<<< HEAD
-//列表样式
-class List extends Component {
-  render() {
-    return (
-      <View style={styles.list_item}>
-        <Text style={styles.list_item_font}>{this.props.title}</Text>
-=======
 
 //列表样式
 class List extends Component {
@@ -82,7 +55,6 @@ class List extends Component {
     return (
       <View>
         {list}
->>>>>>> 821375130f7727bd49a9b7fe01147d48d8de903a
       </View>
     );
   }
