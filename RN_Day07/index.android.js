@@ -17,6 +17,8 @@ import {
   Modal
 } from 'react-native';
 
+//实现了Android 的DrawerLayout效果,
+
 class RN_Day07 extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,19 @@ class RN_Day07 extends Component {
     this.openDrawer = this.openDrawer.bind(this);
   }
 
+  setToggleTimeOut() {
+    setTimeout(function() {
+      this.setState({
+        animating: !this.state.animating
+      });
+      this.setToggleTimeOut();
+    }, 1900);
+  }
+
+  /**在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。*/
+  componentDidMount() {
+    this.setToggleTimeOut();
+  }
 
 
   openDrawer() {
@@ -44,7 +59,17 @@ class RN_Day07 extends Component {
 
     return (
       <View style={styles.container}>
-        <DrawerLayoutAndroid
+
+       {/**初始化的时候用来做加载的View*/}
+        <ActivityIndicator 
+          animating = {this.state.animating}
+          style = {[styles.centering]}
+          size = {'large'}
+        />
+
+        {
+          this.state.animating?null:
+           <DrawerLayoutAndroid
           ref={component => this.drawer = component}
           drawerWidth = {300}
           renderNavigationView ={()=>navigationView}
@@ -53,9 +78,10 @@ class RN_Day07 extends Component {
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
           </View>
-        </DrawerLayoutAndroid>
-        {/**position enum('absolute', 'relative')*/}
-        <ActivityIndicator/>
+         </DrawerLayoutAndroid>
+        }
+       
+       
       </View>
     );
   }
@@ -65,7 +91,9 @@ const styles = StyleSheet.create({
   centering: {
     justifyContent: 'center',
     padding: 8,
+
     alignItems: 'center',
+    height: 80,
   },
   container: {
     flex: 1,

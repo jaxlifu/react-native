@@ -1,5 +1,5 @@
 {
-  "name": "RN_Day07",
+  "name": "RN_Day08",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react": "15.2.1",
-    "react-native": "0.29.1"
+    "react-native": "0.29.2"
   }
 }
