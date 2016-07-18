@@ -1,4 +1,4 @@
-#react-native学习笔记Day04 2016-07-15
+#react-native学习笔记Day05 2016-07-16
 ###react-native Image 和TouchableHighlight TouchableOpacity 的使用
 
 案例:实现图片手动切换效果 
