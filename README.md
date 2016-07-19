@@ -1,6 +1,6 @@
 #react-native学习笔记
 ##1.问题描述
->###1. 无法链接到服务器 
+###1. 无法链接到服务器 
 ```
 com.facebook.react.devsupport.DebugServerException: Could not connect to development server.
 
@@ -25,7 +25,7 @@ at java.lang.Thread.run(Thread.java:841)
 多数情况下在执行```react-native run-android```的时候packager server会自动开启   
 
 
->###2.无法运行  
+###2.无法运行  
 ``` 
 jax$  react-native run-android
 Starting JS server...
@@ -40,7 +40,8 @@ jax$ adb devices
 List of devices attached
 192.168.56.101:5555	device
 
-```  
+```     
+
 + 解决方案  
 you might check the permissions on android/gradlew  
 they should be ```755``` not ```644```  
