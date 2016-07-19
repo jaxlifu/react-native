@@ -31,12 +31,24 @@ class RN_Day07 extends Component {
   }
 
   setToggleTimeOut() {
-    setTimeout(function() {
+    // var laoding = !this.state.animating;
+    // var self = this;
+    // setTimeout(function() {
+    //   self.setState({
+    //     animating: laoding,
+    //   });
+    //   self.setToggleTimeOut();
+    // }, 1900);
+
+    /**上面是之前的写法,下面是ES6最新写法,我感觉这个是retrolambda语法*/
+    setTimeout(() => {
+      // prepend 10 items
+      //此处还不会更新
       this.setState({
-        animating: !this.state.animating
+        animating: !this.state.animating,
       });
-      this.setToggleTimeOut();
-    }, 1900);
+      //this.setToggleTimeOut();
+    }, 2000);
   }
 
   /**在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。*/
@@ -57,19 +69,16 @@ class RN_Day07 extends Component {
       </View>
     );
 
-    return (
-      <View style={styles.container}>
-
-       {/**初始化的时候用来做加载的View*/}
-        <ActivityIndicator 
+    const indicator = (
+      <ActivityIndicator 
           animating = {this.state.animating}
           style = {[styles.centering]}
           size = {'large'}
-        />
+      />
+    );
 
-        {
-          this.state.animating?null:
-           <DrawerLayoutAndroid
+    const drawerLayout = (
+      <DrawerLayoutAndroid
           ref={component => this.drawer = component}
           drawerWidth = {300}
           renderNavigationView ={()=>navigationView}
@@ -78,8 +87,17 @@ class RN_Day07 extends Component {
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
           </View>
-         </DrawerLayoutAndroid>
-        }
+      </DrawerLayoutAndroid>
+    );
+
+    return (
+      <View style={styles.container}>
+
+       {
+        /**初始化的时候用来做加载的View*/
+        this.state.animating?indicator:null
+       }
+      {this.state.animating?null:drawerLayout}
        
        
       </View>

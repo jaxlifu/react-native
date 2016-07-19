@@ -28,16 +28,26 @@ class RN_Day07 extends Component {
   setToggleTimeOut() {
     //开Demo中的是节制在setTimeOut中写的this.setState但是编译不通过 
     //更据自己理解是内部类使用情况要做调整
-    var loading = !this.state.animating;
-    var self = this;
+    // var loading = !this.state.animating;
+    // var self = this;
 
-    setTimeout(function() {
+    // setTimeout(function() {
 
-      self.setState({
-        animating: loading,
+    //   self.setState({
+    //     animating: loading,
+    //   });
+    //   self.setToggleTimeOut();
+    // }, 1900);
+
+    /**上面是之前的写法,下面是ES6最新写法,我感觉这个是retrolambda语法*/
+    setTimeout(() => {
+      // prepend 10 items
+      //此处还不会更新
+      this.setState({
+        animating: !this.state.animating,
       });
-      self.setToggleTimeOut();
-    }, 1900);
+      this.setToggleTimeOut();
+    }, 2000);
   }
 
   /**在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。*/
@@ -54,10 +64,7 @@ class RN_Day07 extends Component {
           size = {'large'}
         />
 
-        {this.state.animating?null:
-          <Text style= {[styles.welcome]}>加载完成后显示的界面</Text>
-
-        }
+        {this.state.animating?null:<Text style= {[styles.welcome]}>加载完成后显示的界面</Text>}
       </View>
     );
   }
