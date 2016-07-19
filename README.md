@@ -23,7 +23,7 @@ at java.lang.Thread.run(Thread.java:841)
 	如果上述方法还不生效则可能是packager server未开启, ``` npm start ```  
 	多数情况下在执行```react-native run-android```的时候packager server会自动开启
 
->###2.无法运行
+>###2.无法运行  
 ``` 
 jax$  react-native run-android
 Starting JS server...
