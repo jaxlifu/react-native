@@ -30,10 +30,10 @@ class Gank extends Component {
           configureScene = {(route)=>{return Navigator.SceneConfigs.VerticalDownSwipeJump;}}
           renderScene={(route,navigator)=>{let Component = route.component; return <Component {...route.params} navigator={navigator}/>
   */
-
+  //不知道为什么在这边直接用View包裹效果会有问题
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <StatusBar 
         backgroundColor = {'transparent'}
         translucent = {true}/>
@@ -45,6 +45,7 @@ class Gank extends Component {
           configureScene = {(route)=>{return Navigator.SceneConfigs.VerticalDownSwipeJump;}}
           // 用来渲染navigator栈顶的route里的component页面
           renderScene = {(route,navigator)=>{
+            let Component = route.component;
              // route={component: xxx, name: xxx, ...}， navigator.......route 用来在对应界面获取其他键值
             return <route.component navigator={navigator} {...route} {...route.passProps}/>
             // {...route.passProps}即就是把passProps里的键值对全部以给属性赋值的方式展开 如：test={10}

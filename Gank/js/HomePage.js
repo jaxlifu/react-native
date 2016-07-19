@@ -34,6 +34,7 @@ class HomePage extends Component {
 	}
 
 	render() {
+		alert(1);
 		return (
 			<View style={styles.container}>
 				<Text style = {styles.text}>这个是首页信息</Text>
