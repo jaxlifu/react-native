@@ -11,6 +11,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  Image,
   View
 } from 'react-native';
 
@@ -35,12 +36,15 @@ class RN_Day10 extends Component {
     return (
       <Swiper 
         index={0}
-        showsButtons={true}
         autoplay={true}
         style={styles.swiper}
         loop = {true}>
         {homeView}
         {mineView}
+        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB16FcnKVXXXXaTXpXXXXXXXXXX-520-280.png'}}/>
+        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB1iFEbKVXXXXbLXVXXXXXXXXXX-520-280.jpg'}}/>
+        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1Yl.AKVXXXXbaXFXXSutbFXXX.jpg'}}/>
+        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1jIrUKVXXXXXEXVXXSutbFXXX.jpg'}}/>
       </Swiper>
     );
   }
@@ -64,6 +68,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   swiper: {
+    height: 200,
+  },
+  img: {
     height: 200,
   }
 });
