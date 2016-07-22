@@ -47,4 +47,28 @@ you might check the permissions on android/gradlew
 they should be ```755``` not ```644```  
 run ```chmod 755 android/gradlew``` inside your app root folder  
 then run ```react-native run-android  ```
-and it should work again.  
+and it should work again.    
+
+###3.Application example has not been registered.
+```
+ Application example has not been registered. This is either due to a require() error during initialization or failure to call AppRegistry.registerComponent.
+```
+
++ 解决方案
+1. Killing all node processes solved this one for me.  
+2. 检查是否在index.android.js或index.ios.js中出错
+3. 是否在android工程或这ios工程中修改出错,部分情况下可以查看```git diff```,之前出现过一个在android工程中修改的时候  
+```
+public class MainActivity extends ReactActivity {
+
+    /**
+     - Returns the name of the main component registered from JavaScript.
+     - This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return "Gank";//不小心将这个地方这个改了,改成了 return "example";但是我的项目是Gank
+    }
+}
+```
+
