@@ -29,8 +29,8 @@ class RN_Day02 extends Component {
       <ScrollView>
         <Custom/>
         <Header/>
-        <List list={['安倍晋三','你个大sb','你家养了一家的泰迪','每天欢乐多']}></List>
-        <ImportNews news={['这个是自定义组件的','四大四大','哈哈哈哈哈哈','菲律宾的一群傻子']}></ImportNews>
+        <List list={['安倍晋三','你个大sb','你家养了一家的泰迪','每天欢乐多']}/>
+        <ImportNews news={['这个是自定义组件的','四大四大','哈哈哈哈哈哈','菲律宾的一群傻子']}/>
       </ScrollView>
 
 

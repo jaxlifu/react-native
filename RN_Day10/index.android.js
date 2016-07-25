@@ -12,7 +12,8 @@ import {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  WebView
 } from 'react-native';
 
 
@@ -34,18 +35,32 @@ class RN_Day10 extends Component {
       </View>
     );
     return (
-      <Swiper 
-        index={0}
-        autoplay={true}
-        style={styles.swiper}
-        loop = {true}>
-        {homeView}
-        {mineView}
-        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB16FcnKVXXXXaTXpXXXXXXXXXX-520-280.png'}}/>
-        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB1iFEbKVXXXXbLXVXXXXXXXXXX-520-280.jpg'}}/>
-        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1Yl.AKVXXXXbaXFXXSutbFXXX.jpg'}}/>
-        <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1jIrUKVXXXXXEXVXXSutbFXXX.jpg'}}/>
-      </Swiper>
+      // {
+
+      //     <Swiper 
+      //     index={0}
+      //     autoplay={true}
+      //     style={styles.swiper}
+      //     loop = {true}>
+      //     {homeView}
+      //     {mineView}
+      //     <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB16FcnKVXXXXaTXpXXXXXXXXXX-520-280.jpg'}} defaultSource={require('./ic_loading.jpg')} loadingIndicatorSource={require('./ic_loading.jpg')}/>
+      //     <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://img.alicdn.com/tps/TB1iFEbKVXXXXbLXVXXXXXXXXXX-520-280.jpg'}} defaultSource={require('./ic_loading.jpg')} loadingIndicatorSource={require('./ic_loading.jpg')}/>
+      //     <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1Yl.AKVXXXXbaXFXXSutbFXXX.jpg'}} defaultSource={require('./ic_loading.jpg')} loadingIndicatorSource={require('./ic_loading.jpg')}/>
+      //     <Image style={[styles.img,styles.container]} resizeMode={'contain'} source={{uri:'https://aecpm.alicdn.com/simba/img/TB1jIrUKVXXXXXEXVXXSutbFXXX.jpg'}} defaultSource={require('./ic_loading.jpg')} loadingIndicatorSource={require('./ic_loading.jpg')}/>
+      //   </Swiper>
+      //   }
+      <WebView
+            automaticallyAdjustContentInsets={true}
+            scrollEnabled = {false}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            decelerationRate="normal"
+            startInLoadingState={true}
+            source={{uri:'http://www.astu.cc/'}}
+        >
+        </WebView>
+
     );
   }
 }
