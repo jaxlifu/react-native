@@ -4,29 +4,34 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+//noinspection JSUnresolvedVariable
+import React, {Component} from 'react';
+//noinspection JSUnresolvedVariable
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Navigator
 } from 'react-native';
 
+import Splash from './js/Splash';
+/* let Component = route.component;
+ * return <Component {...route.params} navigator={navigator}
+ */
 class RN_Day15 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        <Navigator
+            initialRoute={{component: Splash}}
+            configureScene={() => Navigator.SceneConfigs.PushFromRight}
+            renderScene={
+              (route, navigator) => {
+                let Component = route.component;
+                return <Component title={route.title} navigator={navigator}/>
+              }
+            }
+        />
     );
   }
 }

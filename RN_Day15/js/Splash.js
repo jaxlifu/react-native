@@ -13,7 +13,8 @@ import {
     View,
     Image,
     Dimensions,
-    Navigator
+    Navigator,
+    InteractionManager
 } from 'react-native';
 
 //通过输出发现这个宽高是360*640 实际是720 *1280 所以这个单位应该是Android中dp类似
@@ -29,16 +30,20 @@ class Splash extends Component {
     }
 
     componentDidMount() {
-        //1.9s后自动跳转
         const {navigator} = this.props;
+
+        //1.9s后自动跳转
         this.timer = setTimeout(()=> {
-            alert('是时候跳转了!');
-            console.log('是时候跳转了');
-            // if (navigator) {
-            //     navigator.push({component: Main});
-            // }
+            // alert('是时候跳转了!');
+            // console.log('是时候跳转了');
+            InteractionManager.runAfterInteractions(()=> {
+                navigator.resetTo({
+                    component:Main,
+                });
+            });
         }, 1900);
     }
+
 
     componentWillUnmount() {
         // 如果存在this.timer，则使用clearTimeout清空。
