@@ -14,7 +14,8 @@ import {
     Image,
     Dimensions,
     Navigator,
-    InteractionManager
+    InteractionManager,
+    TouchableOpacity
 } from 'react-native';
 
 //通过输出发现这个宽高是360*640 实际是720 *1280 所以这个单位应该是Android中dp类似
@@ -26,24 +27,16 @@ class Splash extends Component {
     constructor(props) {
         super(props);
         // 初始状态
-        this.state = {};
     }
 
     componentDidMount() {
-        const {navigator} = this.props;
-
         //1.9s后自动跳转
         this.timer = setTimeout(()=> {
             // alert('是时候跳转了!');
             // console.log('是时候跳转了');
-            InteractionManager.runAfterInteractions(()=> {
-                navigator.resetTo({
-                    component:Main,
-                });
-            });
+            InteractionManager.runAfterInteractions(()=> this.jump2Main());
         }, 1900);
     }
-
 
     componentWillUnmount() {
         // 如果存在this.timer，则使用clearTimeout清空。
@@ -51,13 +44,25 @@ class Splash extends Component {
         this.timer && clearTimeout(this.timer);
     }
 
+
+    jump2Main() {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.push({
+                component: Main,
+            });
+        }
+    }
+
     render() {
         return (
             <View>
-                <Image
-                    resizeMode={'cover'}
-                    source={require('../images/splash@3x.png')}
-                    style={styles.image}/>
+                <TouchableOpacity onPress={()=>this.jump2Main()}>
+                    <Image
+                        resizeMode={'cover'}
+                        source={require('../images/splash@3x.png')}
+                        style={styles.image}/>
+                </TouchableOpacity>
             </View>
         );
     }

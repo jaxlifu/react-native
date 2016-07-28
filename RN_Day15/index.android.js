@@ -16,22 +16,24 @@ import {
 } from 'react-native';
 
 import Splash from './js/Splash';
+import Main from './js/Main';
 /* let Component = route.component;
  * return <Component {...route.params} navigator={navigator}
  */
 class RN_Day15 extends Component {
+
+
     render() {
         return (
             <Navigator
-                initialRoute={{component: Splash}}
-                configureScene={() => Navigator.SceneConfigs.PushFromRight}
                 renderScene={
-                    (route, navigator) => {
+                    (route, navigator)=> {
                         let Component = route.component;
-                        return <Component title={route.title} navigator={navigator}/>
+                        return <Component {...route.params} navigator={navigator}/>
                     }
                 }
-            />
+                configureScene={()=>Navigator.SceneConfigs.FadeAndroid}
+                initialRoute={{component: Splash}}/>
         );
     }
 }
