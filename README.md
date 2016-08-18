@@ -72,3 +72,31 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
+###4.[iOS 0.29.0]TypeError: Network request failed  
+```
+TypeError: Network request failed
+    at XMLHttpRequest.xhr.onerror (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:24437:8)
+    at XMLHttpRequest.dispatchEvent (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:9960:15)
+    at XMLHttpRequest.setReadyState (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:25890:6)
+    at XMLHttpRequest.__didCompleteResponse (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:25748:6)
+    at http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:25823:52
+    at RCTDeviceEventEmitter.emit (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:9191:23)
+    at MessageQueue.__callFunction (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:7279:23)
+    at http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:7183:8
+    at guard (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:7131:1)
+    at MessageQueue.callFunctionReturnFlushedQueue (http://localhost:8081/index.ios.bundle?platform=ios&dev=true&minify=false:7182:1)
+```
+@(IOS)[模拟器, https,http]
++ 解决方案
+1. 修改`Info.plist` 中的`<key>NSAppTransportSecurity</key>
+	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
+	<dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>`  
+    部分内容 
+2. iOS Simulator -> Reset Contents and Settings... -> Reset
+3. 重新运行react-native run-ios
+
+
+
